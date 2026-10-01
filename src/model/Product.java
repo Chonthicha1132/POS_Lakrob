@@ -13,11 +13,11 @@ public class Product {
     private int stock;
 
     public Product() {
-        // TODO: constructor เปล่า
+        // constructor เปล่า
     }
 
     public Product(String id, String name, double price, int stock) {
-        // TODO: กำหนดค่าเริ่มต้น
+        //  กำหนดค่าเริ่มต้น
         this.id = id;
         this.name = name;
         this.price = price;
@@ -25,16 +25,16 @@ public class Product {
     }
 
     public boolean isInStock() {
-        // TODO: ตรวจสอบ stock > 0
+        //  ตรวจสอบ stock > 0
         return false;
     }
 
     public void addStock(int qty) {
-        // TODO: เพิ่มสต็อก
+        //  เพิ่มสต็อก
     }
 
     public void reduceStock(int qty) {
-        // TODO: ลดสต็อก (ใน diagram เขียน addStock ซ้ำ 2 บรรทัด — ร่างเป็น reduceStock ให้ถูกต้อง)
+        //  ลดสต็อก (ใน diagram เขียน addStock ซ้ำ 2 บรรทัด — ร่างเป็น reduceStock ให้ถูกต้อง)
     }
 
     // --- getters / setters (ร่างไว้) ---

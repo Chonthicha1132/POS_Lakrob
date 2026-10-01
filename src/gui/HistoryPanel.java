@@ -17,17 +17,17 @@ public class HistoryPanel extends JPanel {
     private FileStorageService storage;
 
     public HistoryPanel() {
-        // TODO: สร้าง UI ตารางประวัติ + ปุ่มดูรายละเอียด
+        //  สร้าง UI ตารางประวัติ + ปุ่มดูรายละเอียด
         this.sales = new ArrayList<>();
         this.storage = new FileStorageService();
     }
 
     public void loadHistory() {
-        // TODO: sales = storage.loadSaleOrders(); refresh ตาราง
+        //  sales = storage.loadSaleOrders(); refresh ตาราง
     }
 
     public SaleOrder viewDetail(String orderId) {
-        // TODO: หาใน sales หรือ SaleOrder.loadById(orderId) แล้วโชว์ dialog
+        // หาใน sales หรือ SaleOrder.loadById(orderId) แล้วโชว์ dialog
         return null;
     }
 

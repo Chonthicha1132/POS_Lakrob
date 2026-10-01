@@ -13,22 +13,22 @@ public class CartItem {
     private double subtotal;
 
     public CartItem() {
-        // TODO: constructor เปล่า
+        //  constructor เปล่า
     }
 
     public CartItem(Product product, int quantity) {
-        // TODO: กำหนด product + quantity, snapshot unitPrice จาก product.getPrice()
+        // กำหนด product + quantity, snapshot unitPrice จาก product.getPrice()
         this.product = product;
         this.quantity = quantity;
     }
 
     public double getSubtotal() {
-        // TODO: คำนวณ unitPrice * quantity
+        //  คำนวณ unitPrice * quantity
         return 0.0;
     }
 
     public void setQuantity(int qty) {
-        // TODO: อัปเดตจำนวน + subtotal
+        // อัปเดตจำนวน + subtotal
     }
 
     // --- getters / setters (ร่างไว้) ---

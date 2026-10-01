@@ -17,60 +17,60 @@ public class FileStorageService extends Service {
     private String basePath;
 
     public FileStorageService() {
-        // TODO: basePath default เช่น "data/"
+        //  basePath default เช่น "data/"
         this.basePath = "data/";
     }
 
     public FileStorageService(String basePath) {
-        // TODO: กำหนด path โฟลเดอร์เก็บไฟล์
+        //  กำหนด path โฟลเดอร์เก็บไฟล์
         this.basePath = basePath;
     }
 
     // --- Product ---
     public void saveProduct(Product product) {
-        // TODO: เขียน product ลงไฟล์
+        //  เขียน product ลงไฟล์
     }
 
     public List<Product> loadProducts() {
-        // TODO: อ่านไฟล์ -> List<Product>
+        //  อ่านไฟล์ -> List<Product>
         return new ArrayList<>();
     }
 
     // --- SaleOrder ---
     public void saveSaleOrder(SaleOrder order) {
-        // TODO: เขียน order ลงไฟล์
+        //  เขียน order ลงไฟล์
     }
 
     public List<SaleOrder> loadSaleOrders() {
-        // TODO: อ่านไฟล์ -> List<SaleOrder>
+        //  อ่านไฟล์ -> List<SaleOrder>
         return new ArrayList<>();
     }
 
     // --- User ---
     public void saveUser(User user) {
-        // TODO: เขียน user ลงไฟล์
+        //  เขียน user ลงไฟล์
     }
 
     public User loadUser() {
-        // TODO: อ่านไฟล์ -> User (ตาม diagram ไม่มี param)
+        //  อ่านไฟล์ -> User (ตาม diagram ไม่มี param)
         return null;
     }
 
     // --- override จาก Service (abstract) ---
     @Override
     public void save(Object data) {
-        // TODO: route ตามชนิด data -> saveProduct / saveSaleOrder / saveUser
+        //  route ตามชนิด data -> saveProduct / saveSaleOrder / saveUser
     }
 
     @Override
     public Object load() {
-        // TODO: default load (เช่น loadProducts)
+        //  default load (เช่น loadProducts)
         return null;
     }
 
     @Override
     public void delete(String id) {
-        // TODO: ลบข้อมูลตาม id
+        //  ลบข้อมูลตาม id
     }
 
     // --- getter/setter ---

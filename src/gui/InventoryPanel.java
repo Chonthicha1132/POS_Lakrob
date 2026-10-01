@@ -17,25 +17,25 @@ public class InventoryPanel extends JPanel {
     private FileStorageService storage;
 
     public InventoryPanel() {
-        // TODO: สร้าง UI ตารางสินค้า + ฟอร์มเพิ่ม/แก้ไข
+        //  สร้าง UI ตารางสินค้า + ฟอร์มเพิ่ม/แก้ไข
         this.products = new ArrayList<>();
         this.storage = new FileStorageService();
     }
 
     public void loadProducts() {
-        // TODO: products = storage.loadProducts(); refresh ตาราง
+        // products = storage.loadProducts(); refresh ตาราง
     }
 
     public void addProduct(Product product) {
-        // TODO: products.add + storage.saveProduct(product)
+        //  products.add + storage.saveProduct(product)
     }
 
     public void updateProduct(Product product) {
-        // TODO: อัปเดตใน products + storage.saveProduct(product)
+        //  อัปเดตใน products + storage.saveProduct(product)
     }
 
     public void deleteProduct(String productId) {
-        // TODO: ลบออกจาก products + storage.delete(productId)
+        //  ลบออกจาก products + storage.delete(productId)
     }
 
     // --- getters (ร่างไว้) ---

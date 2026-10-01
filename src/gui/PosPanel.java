@@ -17,33 +17,33 @@ public class PosPanel extends JPanel {
     private double totalAmount;
 
     public PosPanel() {
-        // TODO: สร้าง UI (ตาม MainFrame เดิม: header, menu grid, cart panel)
+        //  สร้าง UI (ตาม MainFrame เดิม: header, menu grid, cart panel)
         this.cart = new ArrayList<>();
     }
 
     public void addProduct(Product product, int qty) {
-        // TODO: Product -> CartItem (ถ้ามีแล้วให้บวก qty) แล้ว refresh + calculateTotal
+        //  Product -> CartItem (ถ้ามีแล้วให้บวก qty) แล้ว refresh + calculateTotal
     }
 
     public void removeItem(String productId) {
-        // TODO: ลบ CartItem ตาม productId
+        //  ลบ CartItem ตาม productId
     }
 
     public void updateQuantity(String productId, int qty) {
-        // TODO: อัปเดตจำนวนชิ้นของ CartItem
+        // อัปเดตจำนวนชิ้นของ CartItem
     }
 
     public double calculateTotal() {
-        // TODO: รวม getSubtotal() ทุก cart -> totalAmount
+        // รวม getSubtotal() ทุก cart -> totalAmount
         return 0.0;
     }
 
     public void clearCart() {
-        // TODO: ล้างตะกร้า + reset totalAmount
+        //  ล้างตะกร้า + reset totalAmount
     }
 
     public void checkout() {
-        // TODO: CartItem -> SaleOrder.addItem() -> save() -> FileStorageService.saveSaleOrder()
+        //  CartItem -> SaleOrder.addItem() -> save() -> FileStorageService.saveSaleOrder()
         //       -> ตัดสต็อก Product -> clearCart()
     }
 

@@ -24,36 +24,36 @@ public class SaleOrder {
     }
 
     public SaleOrder(String id, User createdBy) {
-        // TODO: กำหนด id, createdBy, orderDate = now, status เริ่มต้น
+        //  กำหนด id, createdBy, orderDate = now, status เริ่มต้น
         this.id = id;
         this.createdBy = createdBy;
         this.items = new ArrayList<>();
     }
 
     public void addItem(Product product, int qty) {
-        // TODO: แปลง Product -> SaleOrderItem แล้ว add ลง items
+        //  แปลง Product -> SaleOrderItem แล้ว add ลง items
     }
 
     public void removeItem(String productId) {
-        // TODO: ลบ SaleOrderItem ตาม productId
+        //  ลบ SaleOrderItem ตาม productId
     }
 
     public double calculateTotal() {
-        // TODO: รวม subtotal ทุก item -> totalAmount
+        //  รวม subtotal ทุก item -> totalAmount
         return 0.0;
     }
 
     public List<SaleOrderItem> getItems() {
-        // TODO: คืนค่า items
+        //  คืนค่า items
         return items;
     }
 
     public void save() {
-        // TODO: เรียก FileStorageService.saveSaleOrder(this)
+        //  เรียก FileStorageService.saveSaleOrder(this)
     }
 
     public static SaleOrder loadById(String orderId) {
-        // TODO: เรียก FileStorageService โหลดตาม id
+        //  เรียก FileStorageService โหลดตาม id
         return null;
     }
 

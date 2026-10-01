@@ -14,11 +14,11 @@ public class SaleOrderItem {
     private double subtotal;
 
     public SaleOrderItem() {
-        // TODO: constructor เปล่า
+        //  constructor เปล่า
     }
 
     public SaleOrderItem(String id, Product product, int quantity, double unitPrice) {
-        // TODO: กำหนดค่าเริ่มต้น
+        //  กำหนดค่าเริ่มต้น
         this.id = id;
         this.product = product;
         this.quantity = quantity;
@@ -26,7 +26,7 @@ public class SaleOrderItem {
     }
 
     public double getSubtotal() {
-        // TODO: คำนวณ unitPrice * quantity
+        //  คำนวณ unitPrice * quantity
         return 0.0;
     }
 

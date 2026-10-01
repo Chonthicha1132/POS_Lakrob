@@ -13,11 +13,11 @@ public class User {
     private String role;
 
     public User() {
-        // TODO: constructor เปล่า (สำหรับ FileStorageService โหลดข้อมูล)
+        //  constructor เปล่า (สำหรับ FileStorageService โหลดข้อมูล)
     }
 
     public User(String id, String username, String password, String role) {
-        // TODO: กำหนดค่าเริ่มต้น
+        //  กำหนดค่าเริ่มต้น
         this.id = id;
         this.username = username;
         this.password = password;
@@ -25,12 +25,12 @@ public class User {
     }
 
     public boolean checkPermission() {
-        // TODO: ตรวจสอบสิทธิ์ตาม role
+        //  ตรวจสอบสิทธิ์ตาม role
         return false;
     }
 
     public String getRole() {
-        // TODO: คืนค่า role
+        //  คืนค่า role
         return role;
     }
 

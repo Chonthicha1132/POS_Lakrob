@@ -10,7 +10,7 @@ public abstract class Service {
     protected FileStorageService fileService;
 
     public Service() {
-        // TODO: init fileService ถ้าจำเป็น
+        //  init fileService ถ้าจำเป็น
     }
 
     public abstract void save(Object data);
