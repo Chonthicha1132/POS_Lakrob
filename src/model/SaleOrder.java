@@ -24,36 +24,54 @@ public class SaleOrder {
     }
 
     public SaleOrder(String id, User createdBy) {
-        //  กำหนด id, createdBy, orderDate = now, status เริ่มต้น
         this.id = id;
         this.createdBy = createdBy;
+        this.orderDate = LocalDateTime.now();
+        this.status = "paid";
         this.items = new ArrayList<>();
     }
 
     public void addItem(Product product, int qty) {
-        //  แปลง Product -> SaleOrderItem แล้ว add ลง items
+        if (product == null || qty <= 0) return;
+        String itemId = id + "-" + (items.size() + 1);
+        items.add(new SaleOrderItem(itemId, product, qty, product.getPrice()));
+        calculateTotal();
     }
 
     public void removeItem(String productId) {
-        //  ลบ SaleOrderItem ตาม productId
+        items.removeIf(it -> it.getProduct() != null && it.getProduct().getId().equals(productId));
+        calculateTotal();
     }
 
     public double calculateTotal() {
-        //  รวม subtotal ทุก item -> totalAmount
-        return 0.0;
+        double sum = 0;
+        for (SaleOrderItem it : items) sum += it.getSubtotal();
+        this.totalAmount = sum;
+        return totalAmount;
     }
 
     public List<SaleOrderItem> getItems() {
-        //  คืนค่า items
         return items;
     }
 
     public void save() {
-        //  เรียก FileStorageService.saveSaleOrder(this)
+        try {
+            service.FileStorageService fs = new service.FileStorageService();
+            fs.saveSaleOrder(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static SaleOrder loadById(String orderId) {
-        //  เรียก FileStorageService โหลดตาม id
+        try {
+            service.FileStorageService fs = new service.FileStorageService();
+            for (SaleOrder o : fs.loadSaleOrders()) {
+                if (o.getId().equals(orderId)) return o;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

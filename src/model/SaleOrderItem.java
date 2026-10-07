@@ -26,8 +26,8 @@ public class SaleOrderItem {
     }
 
     public double getSubtotal() {
-        //  คำนวณ unitPrice * quantity
-        return 0.0;
+        this.subtotal = unitPrice * quantity;
+        return subtotal;
     }
 
     // --- getters / setters (ร่างไว้) ---

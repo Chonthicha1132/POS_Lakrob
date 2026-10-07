@@ -25,12 +25,27 @@ public class User {
     }
 
     public boolean checkPermission() {
-        //  ตรวจสอบสิทธิ์ตาม role
-        return false;
+        return role != null && !role.isBlank();
+    }
+
+    public boolean isAdmin() {
+        if (role == null) return false;
+        String r = role.trim().toLowerCase();
+        return r.equals("admin") || r.contains("admin") || r.contains("จัดการ") || r.contains("เจ้าของ");
+    }
+
+    public boolean checkPassword(String password) {
+        if (password == null) return false;
+        return password.equals(this.password);
     }
 
     public String getRole() {
-        //  คืนค่า role
+        return role;
+    }
+
+    public String getDisplayRole() {
+        if (isAdmin()) return "ผู้จัดการร้าน";
+        if (role == null || role.isBlank()) return "พนักงานขาย";
         return role;
     }
 

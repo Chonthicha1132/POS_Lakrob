@@ -17,18 +17,25 @@ public class CartItem {
     }
 
     public CartItem(Product product, int quantity) {
-        // กำหนด product + quantity, snapshot unitPrice จาก product.getPrice()
         this.product = product;
-        this.quantity = quantity;
+        this.quantity = Math.max(1, quantity);
+        this.unitPrice = product != null ? product.getPrice() : 0;
+        this.subtotal = this.unitPrice * this.quantity;
     }
 
     public double getSubtotal() {
-        //  คำนวณ unitPrice * quantity
-        return 0.0;
+        this.subtotal = unitPrice * quantity;
+        return subtotal;
     }
 
     public void setQuantity(int qty) {
-        // อัปเดตจำนวน + subtotal
+        if (qty < 0) qty = 0;
+        this.quantity = qty;
+        this.subtotal = this.unitPrice * this.quantity;
+    }
+
+    public void increase(int delta) {
+        setQuantity(this.quantity + delta);
     }
 
     // --- getters / setters (ร่างไว้) ---

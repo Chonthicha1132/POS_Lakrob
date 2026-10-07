@@ -28,12 +28,12 @@ public class LoginFrame extends JFrame {
         header.setBorder(new EmptyBorder(52, 0, 62, 0));
 
         JLabel title = new JLabel("ระบบออเดอร์หน้าร้าน");
-        title.setFont(new Font("Tahoma", Font.BOLD, 52));
+        title.setFont(AppFont.thai(Font.BOLD, 52));
         title.setForeground(Color.WHITE);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel subtitle = new JLabel("โปรดลงชื่อเข้าสู่ระบบเพื่อเริ่มต้นใช้งาน");
-        subtitle.setFont(new Font("Tahoma", Font.PLAIN, 22));
+        subtitle.setFont(AppFont.thai(Font.PLAIN, 22));
         subtitle.setForeground(Color.WHITE);
         subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -58,7 +58,7 @@ public class LoginFrame extends JFrame {
         };
 
         for (JTextField f : new JTextField[]{usernameField, passwordField}) {
-            f.setFont(new Font("Serif", Font.PLAIN, 24));
+            f.setFont(AppFont.thai(Font.PLAIN, 24));
             f.setBackground(Color.WHITE);
             f.setAlignmentX(Component.LEFT_ALIGNMENT);
             f.setPreferredSize(new Dimension(600, 62));
@@ -69,7 +69,7 @@ public class LoginFrame extends JFrame {
         }
 
         // text เฉยๆ
-        Font labelFont = new Font("Tahoma", Font.BOLD, 24);
+        Font labelFont = AppFont.thai(Font.BOLD, 24);
         JLabel userLabel = new JLabel("ชื่อผู้ใช้งาน");
         userLabel.setFont(labelFont);
         userLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -79,7 +79,7 @@ public class LoginFrame extends JFrame {
 
         // ปุ่มเข้าสู่ระบบ
         JButton loginButton = new JButton("เข้าสู่ระบบ");
-        loginButton.setFont(new Font("Tahoma", Font.BOLD, 26));
+        loginButton.setFont(AppFont.thai(Font.BOLD, 26));
         loginButton.setForeground(Color.white);
         loginButton.setBackground(buttonBg);
         loginButton.setOpaque(true);
@@ -123,12 +123,44 @@ public class LoginFrame extends JFrame {
         add(body, BorderLayout.CENTER);
     }
 
+    /**
+     * กดปุ่มเข้าสู่ระบบ: เช็ค users.csv (มีแค่ admin/user 2 คน)
+     * ถูก -> เปิด MainFrame แล้วปิดหน้านี้, ผิด -> แจ้งเตือน
+     */
     public boolean login() {
+        String username = usernameField.getText().trim();
+        String password = new String(passwordField.getPassword());
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "กรุณากรอกชื่อผู้ใช้งานและรหัสผ่าน",
+                "ข้อมูลไม่ครบ", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        model.User user = authenticate(username, password);
+        if (user == null) {
+            JOptionPane.showMessageDialog(this, "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง",
+                "เข้าสู่ระบบไม่สำเร็จ", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        // สำเร็จ -> ไป MainFrame
+        MainFrame main = new MainFrame(user);
+        main.setVisible(true);
+        dispose();
         return true;
     }
 
+    /** เช็คกับไฟล์ data/users.csv คืน User ถ้าตรง, ไม่ตรงคืน null */
+    public model.User authenticate(String username, String password) {
+        try {
+            service.FileStorageService fs = new service.FileStorageService();
+            return fs.authenticate(username, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public boolean authenticate() {
-        return true;
+        return login();
     }
 
     // hint ทำให้ข้อความจาง
@@ -145,6 +177,8 @@ public class LoginFrame extends JFrame {
     }
 
     public static void main(String[] args) {
-        new LoginFrame().setVisible(true);
+        // ตั้งฟอนต์ไทยเป็น default ก่อนสร้างจอ กันตัวหนังสือเป็น □□□
+        AppFont.applyGlobalDefault();
+        SwingUtilities.invokeLater(() -> new LoginFrame().setVisible(true));
     }
 }

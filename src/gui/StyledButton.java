@@ -22,7 +22,7 @@ public class StyledButton extends JButton {
         this.baseColor = baseColor;
         this.arc = arc;
         setForeground(Color.WHITE);
-        setFont(new Font("Tahoma", Font.BOLD, 13));
+        setFont(AppFont.thai(Font.BOLD, 13));
         setContentAreaFilled(false);
         setBorderPainted(false);
         setFocusPainted(false);
