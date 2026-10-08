@@ -127,6 +127,15 @@ public class LoginFrame extends JFrame {
     form.add(showPass);                      // เช็กบ้อค
     form.add(Box.createVerticalStrut(30));   //  ลดขนาดลงให้พอดีความสูงฟอร์ม
     form.add(buttonPanel);
+        form.add(userLabel);
+        form.add(Box.createVerticalStrut(8));
+        form.add(usernameField);
+        form.add(Box.createVerticalStrut(25));
+        form.add(passLabel);
+        form.add(Box.createVerticalStrut(8));
+        form.add(passwordField);
+        form.add(Box.createVerticalStrut(45));
+        form.add(buttonPanel);
 
         JPanel body = new JPanel(new GridBagLayout());
         body.setBackground(bodyBg);
